@@ -29,6 +29,8 @@ original HDF file           |  Mosaic GeoTIFF file
 :-------------------------:|:-------------------------:
 Has multiple layers and will not be accessible for analysis|  Not available for depection due to projection but combines the multiple images of EVI to create a mosaic of data covering the entire state of California
 
+This code essentially takes the HDF files covering California for a day (3 seperate files determined by date on image name) and creates a TIFF image of the 3 files in the same frame.
+
 Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
 
  *TSM_Imageviewer* allows you to look at your image.
