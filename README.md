@@ -27,7 +27,7 @@ This [page](https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viir
 
 original HDF file           |  Mosaic GeoTIFF file
 :-------------------------:|:-------------------------:
-Has multiple layers and will not be accessible for analysis|  ![](images/clippedtifCA.png)
+Has multiple layers and will not be accessible for analysis|  ![](images/mosaic_2022_12_27.tif)
 
 Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
 
