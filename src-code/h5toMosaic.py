@@ -11,11 +11,11 @@ from osgeo import gdal, gdal_array
 gdal.UseExceptions()
 
 # Update to dir on your OS containing VIIRS files
-inDir = r"C:\Users\laszews\Documents\Thesis\EVI"
+inDir = r"folder/holding data"
 os.chdir(inDir)  # Change to working directory
-outDir = r"C:\Users\laszews\Documents\Thesis\EVI\TIF"
-mosaicDir = r"C:\Users\laszews\Documents\Thesis\EVI\Mosaic"  # New directory for mosaicked files
-california_shapefile = r"C:\Users\laszews\Documents\thesisbands\ca_state\ca_state.shp"
+outDir = r"folder/for/tifimages/before/mosaic"
+mosaicDir = r"folder/for/mosaics"  # New directory for mosaicked files
+california_shapefile = r"clipping/extent"
 clippedMosaicDir = os.path.join(mosaicDir, "clipped_mosaics")
 
 
