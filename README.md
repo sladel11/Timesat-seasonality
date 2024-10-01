@@ -19,7 +19,7 @@ TIMESAT can only process specific file tyoes including BIL and not TIF, so we wi
 Also, there are two bands, one for the ascending path of the L band radiometer and one for the descending path.
 These bands will have to be seperated during the BIL conversion. 
 
-[Code for conversion to bil](src-code/TiftoBILSMAP.py)
+[Code for conversion to bil](src-code/TifToBILSMAP.py)
 
 
 
