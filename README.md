@@ -23,4 +23,13 @@ These bands will have to be seperated during the BIL conversion.
 
 [More information on BIL files](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
 
+Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
+
+Download TIMESAT standalone or with matlab already
+
+If you have matlab just type 
+'''
+TIMESAT
+'''
+into their command window after installation of TIMESAT 
 
