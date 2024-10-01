@@ -31,7 +31,7 @@ Has multiple layers and will not be accessible for analysis|  Not available for 
 
 This [code](src-code/h5toMosaic.py) essentially takes the HDF files covering area of interest and for each day (x amount of files determined by amoubt if files with sane date on image name), creates a TIFF image of the files in the same frame. Lastly, the mosaic is clipped to a more defined extent. 
 
-###Confirm handling of file
+### Confirm handling of file
 Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
 
  *TSM_Imageviewer* allows you to look at your image.
