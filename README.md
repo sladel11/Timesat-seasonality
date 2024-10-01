@@ -15,7 +15,7 @@ original GeoTIFF file           |  Clipped GeoTIFF fille
 [Code for clipping to your extent](src-code/cliptif.py)
 
 ### 2. Converting to Band interleaved by line (BIL)
-TIMESAT can only process specific file tyoes including BIL and not TIF, so we will have to convert the images. 
+TIMESAT can only process specific file types including BIL and not TIF, so we will have to convert the images. 
 Also, there are two bands, one for the ascending path of the L band radiometer and one for the descending path.
 These bands will have to be seperated during the BIL conversion. 
 
