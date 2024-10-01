@@ -27,7 +27,7 @@ This [page](https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viir
 
 original HDF file           |  Mosaic GeoTIFF file
 :-------------------------:|:-------------------------:
-Has multiple layers and will not be accessible for analysis|  ![](images/mosaic20221227.tif)
+Has multiple layers and will not be accessible for analysis|  Not available for depection due to projection but combines the multiple images of EVI to create a mosaic of data covering the entire state of California
 
 Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
 
