@@ -10,7 +10,7 @@ The image file contains data for the whole world, reducing the file size for ana
 
 original tif file           |  Clipped tif fille
 :-------------------------:|:-------------------------:
-![](images/OriginalTIFSMAP.png)  |  ![](https://...Ocean.png)
+![](images/OriginalTIFSMAP.png)  |  ![](images/clippedtifCA.png)
 
 [Code for clipping to your extent](src-code/cliptif.py)
 
