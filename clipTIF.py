@@ -2,22 +2,22 @@ import arcpy
 import os
 
 # Set the workspace
-arcpy.env.workspace = r"C:\Users\laszews\Documents\thesis\2020SMAP"
+arcpy.env.workspace = r"Where/you/store/rasters/in/tif"
 
 # Path to the California shapefile
-california_shapefile = r"C:\Users\laszews\Documents\thesisbands\ca_state\ca_state.shp"
+clipping_shapefile = r"shapefile/for/clipping"
 
 # Ensure the shapefile exists
-if not arcpy.Exists(california_shapefile):
-    print(f"Shapefile {california_shapefile} does not exist.")
+if not arcpy.Exists(clipping_shapefile):
+    print(f"Shapefile {clipping_shapefile} does not exist.")
     sys.exit()
 
-# Get a list of all TIFF files in the workspace that start with 'NSIDC'
-tif_files = arcpy.ListRasters('NSIDC*.tif')
+# Get a list of all TIFF files in the workspace
+tif_files = arcpy.ListRasters('*.tif')
 
 # Check if there are any TIFF files that match the criteria
 if not tif_files:
-    print("No TIFF files starting with 'NSIDC' found in the workspace.")
+    print("No TIFF files' found in the workspace.")
 else:
     # Loop through each TIFF file
     for tif_file in tif_files:
@@ -31,12 +31,12 @@ else:
         if arcpy.Exists(clipped_file_path):
             arcpy.Delete_management(clipped_file_path)
         
-        # Clip the raster using the California shapefile
-        print(f"Clipping {file_path} using the California shapefile...")
+        # Clip the raster using the shapefile
+        print(f"Clipping {file_path} using the shapefile...")
         arcpy.management.Clip(file_path, 
                               "#", 
                               clipped_file_path, 
-                              california_shapefile, 
+                              clipping_shapefile, 
                               "#", 
                               "ClippingGeometry", 
                               "NO_MAINTAIN_EXTENT")
