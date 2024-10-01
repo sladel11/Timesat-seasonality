@@ -28,8 +28,8 @@ Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se
 Download TIMESAT standalone or with matlab already
 
 If you have matlab just type 
-'''
-TIMESAT
-'''
+
+>TIMESAT
+
 into their command window after installation of TIMESAT 
 
