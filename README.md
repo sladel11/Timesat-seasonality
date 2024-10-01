@@ -21,6 +21,6 @@ These bands will have to be seperated during the BIL conversion.
 
 [Code for conversion to bil](src-code/TifToBILSMAP.py)
 
-
+[More information on BIL files](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
 
 
