@@ -25,7 +25,7 @@ These bands will have to be seperated during the BIL conversion.
 The image file for EVI is in an h5 or Hierarchical Data Format (HDF) indicating there is multidimensional data stored in the layer. 
 This [page](https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viirs-surface-reflectance-data/) helped me work with the specific data I used.
 
-original HDF file           |  Mosaic GeoTIFF file
+original HDF file           |  Mosaic GeoTIFF file (and clipped GeoTIFF)
 :-------------------------:|:-------------------------:
 Has multiple layers and will not be accessible for analysis|  Not available for depection due to projection but combines the multiple images of EVI to create a mosaic of data covering the entire state of California (and more but clipping extent defined by an inputted shapefile will remove the extra data)
 
