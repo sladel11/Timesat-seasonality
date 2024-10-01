@@ -11,11 +11,11 @@ from osgeo import gdal, gdal_array
 gdal.UseExceptions()
 
 # Update to dir on your OS containing VIIRS files
-inDir = r"C:\Users\laszews\Documents\Thesis\EVI"
+inDir = r"to/data"
 os.chdir(inDir)  # Change to working directory
-outDir = r"C:\Users\laszews\Documents\Thesis\EVI\TIF"
-mosaicDir = r"C:\Users\laszews\Documents\Thesis\EVI\Mosaic"  # New directory for mosaicked files
-california_shapefile = r"C:\Users\laszews\Documents\thesisbands\ca_state\ca_state.shp"
+outDir = r"\TIF" # new tif images
+mosaicDir = r"\Mosaic"  # New directory for mosaicked files
+california_shapefile = r"" #shapefiel for clipping
 clippedMosaicDir = os.path.join(mosaicDir, "clipped_mosaics")
 
 
@@ -120,7 +120,6 @@ for inFile in files:
 print("All files processed.")
 
 
-# Assuming file_dict is defined and populated elsewhere in your script
 for date, file_list in file_dict.items():
     tiff_files = [os.path.join(outDir, f"{os.path.splitext(os.path.basename(f))[0]}_{date}.tif") for f in file_list]
     print(tiff_files)
