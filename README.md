@@ -29,7 +29,7 @@ Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se
 Determine the number of rows and columns by looking at the header file of the bil file
 Also, for the image file type look under n bits
 
-![](images/bilinTSMImageView.png)
+![](images/images/BILinTSMImageViewierSMAP.png)
 
  
 
