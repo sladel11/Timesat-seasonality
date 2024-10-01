@@ -7,7 +7,7 @@ access to data used
 ### SMAP Soil Moisture(SM)
 The image file contains data for the whole world, reducing the file size for analysis will be a more effective approach.
 
-original GeoTIFF file           |  Clipped GeoTIFF fille
+original GeoTIFF file           |  Clipped GeoTIFF file
 :-------------------------:|:-------------------------:
 ![](images/OriginalTIFSMAP.png)  |  ![](images/clippedtifCA.png)
 
@@ -22,9 +22,12 @@ These bands will have to be seperated during the BIL conversion.
 [More information on BIL files](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
 
 ### Vegetation Health (EVI)
-THe image file is an h5 or Hierarchical Data Format (HDF) indicating there is multidimensional data stored in the layer. 
+The image file for EVI is in an h5 or Hierarchical Data Format (HDF) indicating there is multidimensional data stored in the layer. 
 This [page](https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viirs-surface-reflectance-data/) helped me work with the specific data I used.
 
+original HDF file           |  Mosaic GeoTIFF file
+:-------------------------:|:-------------------------:
+Has multiple layers and will not be accessible for analysis|  ![](images/clippedtifCA.png)
 
 Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
 
