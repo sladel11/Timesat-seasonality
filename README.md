@@ -25,11 +25,11 @@ These bands will have to be seperated during the BIL conversion.
 
 Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
 
-Download TIMESAT standalone or with matlab already
+ *TSM_Imageviewer* allows you to look at your image.
+Determine the number of rows and columns by looking at the header file of the bil file
+Also, for the image file type look under n bits
 
-If you have matlab just type 
+![]()
 
->TIMESAT
-
-into their command window after installation of TIMESAT 
+ 
 
