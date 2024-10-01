@@ -3,8 +3,9 @@
 access to data used
 [SMAP SM](https://nsidc.org/data/nsidc-0779/versions/1)
 
-## Part 1. SMAP data preprocessing
+## Part 1. Data preprocessing
 
+### SMAP SM
 ### 1. Clipping GeoTIFF
 The image file contains data for the whole world, reducing the file size for analysis will be a more effective approach.
 
