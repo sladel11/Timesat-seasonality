@@ -4,5 +4,5 @@
 
 ### Clipping tif 
 
-[Code for clipping to your extent](Timesat-seasonality/src-code/cliptif.py)
+[Code for clipping to your extent](src-code/cliptif.py)
 
