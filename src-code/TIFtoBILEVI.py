@@ -2,8 +2,8 @@ import arcpy
 import os
 
 # Set the workspace
-arcpy.env.workspace = r"C:\Users\laszews\Documents\Thesis\EVI\Mosaic\clipped_mosaics"
-snap_raster_path = r"C:\Users\laszews\Documents\Thesis\2016SMAP\Band_1\BIL\NSIDC-0779_EASE2_G1km_SMAP_SM_DS_20160328_band1.bil"
+arcpy.env.workspace = r"where\files\are\collected"
+snap_raster_path = r"path\to\file\for\rasters\to\overlay"
 
 # Set the snap raster environment
 arcpy.env.snapRaster = snap_raster_path
