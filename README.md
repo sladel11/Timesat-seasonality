@@ -31,7 +31,7 @@ Has multiple layers and will not be accessible for analysis|  Not available for 
 
 This [code](src-code/h5toMosaic.py) essentially takes the HDF files covering area of interest and for each day (x amount of files determined by amoubt if files with sane date on image name), creates a TIFF image of the files in the same frame. Then, the mosaic is clipped to a more defined extent. 
 
-
+THe next step, simmilar to before, convert the tif to bil using this [script]()
 
 
 ### Confirm handling of files
