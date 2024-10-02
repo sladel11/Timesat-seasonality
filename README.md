@@ -52,10 +52,17 @@ The image file paths need to be put into a text file in chronologcal order which
 ![](images/filepaths.png)
 
 Open the TSM_GUI set number of year and make sure that the number of photos is shown. Also, fill the other image information. 
-Th inputs changed from the automatic settings include: 
+The inputs changed from the automatic settings include: 
+- Data range .00001 to 100000 (there are 0 values which are no data)
+- No. of envelope interations increased to 2 (Soil moisture and vegetation health are derived using remote sensing indices which typically underrepresent the ground values)
+- Season start at .3 of the amplitude to get a larger portion of the season
+- Savitzky-Golsay averaging window increased to 10 to reduce noise
 
 An example of a pixel time series produced from the GUI is below:
 ![](images/TSMGUI.png)
+Save this settings file to process all the images 
+
+### Part 3. Process Seasonality and Post-Processing
 
 
 
