@@ -53,7 +53,6 @@ The image file paths need to be put into a text file in chronologcal order which
 
 Open the TSM_GUI set number of year and make sure that the number of photos is shown. Also, fill the other image information. 
 Th inputs changed from the automatic settings include: 
-- 
 
 An example of a pixel time series produced from the GUI is below:
 ![]()
