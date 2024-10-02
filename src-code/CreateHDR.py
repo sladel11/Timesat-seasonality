@@ -30,12 +30,12 @@ def create_envi_header(file_path):
     print(f"Header file created: {header_file_path}")
 
 def generate_headers_for_smap_files(folder_path):
-    """Generate ENVI header files for all SMAP files in the given folder."""
+    """Generate ENVI header files for all  files in the given folder."""
     for filename in os.listdir(folder_path):
-        if filename.startswith('SM') and not filename.endswith('.txt'):
+        if not filename.endswith('.txt'):
             file_path = os.path.join(folder_path, filename)
             create_envi_header(file_path)
 
-# Replace with the path to your folder containing SMAP files
-folder_path = r'C:\Users\laszews\Documents\Thesis\SMAPProcessedResults'
+# Replace with the path to your folder containing ENVI files
+folder_path = r'path/to/files'
 generate_headers_for_smap_files(folder_path)
