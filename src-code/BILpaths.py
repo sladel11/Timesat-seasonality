@@ -33,8 +33,8 @@ def find_bil_files(directory, output_file_band1, output_file_band2):
 
 # Example usage
 directory_to_search = r"C:\Users\laszews\Documents\Thesis"
-output_file_path_band1 = r'C:\Users\laszews\Documents\Thesis\SMAPBILpaths_band1.txt'
-output_file_path_band2 = r'C:\Users\laszews\Documents\Thesis\SMAPBILpaths_band2.txt'
+output_file_path_band1 = r'textfile\for\bil\paths1'
+output_file_path_band2 = r'textfile\for\bil\paths2'
 
 band1_count, band2_count = find_bil_files(directory_to_search, output_file_path_band1, output_file_path_band2)
 
