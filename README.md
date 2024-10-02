@@ -44,3 +44,13 @@ Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se
 Determine the number of rows and columns by looking at the header file of the bil file.
 Then, for the image file type look under n bits
 
+## Part 2. Preprocessing in TSM_GUI
+
+### Create text file of bil paths 
+
+The image file paths need to be put into a text file in chronologcal order which can be done using this [script]() and an example of the text file below. (you will have to put number of file paths at the top yourself)
+![]()
+
+
+
+
