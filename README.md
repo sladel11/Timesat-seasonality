@@ -63,7 +63,22 @@ An example of a pixel time series produced from the GUI is below:
 
 Save this settings file to process all the images 
 
-### Part 3. Process Seasonality and Post-Processing
+## Part 3. Process Seasonality and Post-Processing
+
+### TSF_process
+
+Use TSF_process to run the seasonality model on all the pixels across however many years of data
+
+### Post-Processing 
+
+An example of output images files for the length of season will be given below along with how to convert them so they can be analyzed in another software like QGIS or ArcGIS:Use 
+
+Use the TSF_fit2img to extract length of season imagery for each season, the produced file is a ENVI headerless file that can only be read by TIMESAT.
+
+This [code]() produces a header file based on the parameters of the image so the ENVI file can be converted into a TIFF using this [script]() and read by another software
+
+
+
 
 
 
