@@ -48,7 +48,7 @@ Then, for the image file type look under n bits
 
 ### Create text file of bil paths 
 
-The image file paths need to be put into a text file in chronologcal order which can be done using this [script]() and an example of the text file below. (you will have to put number of file paths at the top yourself)
+The image file paths need to be put into a text file in chronologcal order which can be done using this [script](src-code/BILpaths.py) and an example of the text file below. (you will have to put number of file paths at the top yourself)
 ![](images/filepaths.png)
 
 
