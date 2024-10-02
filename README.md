@@ -51,6 +51,12 @@ Then, for the image file type look under n bits
 The image file paths need to be put into a text file in chronologcal order which can be done using this [script](src-code/BILpaths.py) and an example of the text file below. (you will have to put number of file paths at the top yourself)
 ![](images/filepaths.png)
 
+Open the TSM_GUI set number of year and make sure that the number of photos is shown. Also, fill the other image information. 
+Th inputs changed from the automatic settings include: 
+- 
+
+An example of a pixel time series produced from the GUI is below:
+![]()
 
 
 
