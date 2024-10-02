@@ -60,6 +60,7 @@ The inputs changed from the automatic settings include:
 
 An example of a pixel time series produced from the GUI is below:
 ![](images/TSMGUI.png)
+
 Save this settings file to process all the images 
 
 ### Part 3. Process Seasonality and Post-Processing
