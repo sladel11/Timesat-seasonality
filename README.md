@@ -71,7 +71,7 @@ Use TSF_process to run the seasonality model on all the pixels across however ma
 
 ### Post-Processing 
 
-An example of output images files for the length of season will be given below along with how to convert them so they can be analyzed in another software like QGIS or ArcGIS:Use 
+An example of output images files for the length of season will be given below along with how to convert them so they can be analyzed in another software like QGIS or ArcGIS:
 
 Use the TSF_fit2img to extract length of season imagery for each season, the produced file is a ENVI headerless file that can only be read by TIMESAT.
 
