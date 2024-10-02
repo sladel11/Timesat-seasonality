@@ -55,7 +55,7 @@ Open the TSM_GUI set number of year and make sure that the number of photos is s
 Th inputs changed from the automatic settings include: 
 
 An example of a pixel time series produced from the GUI is below:
-![]()
+![](images/TSMGUI.png)
 
 
 
