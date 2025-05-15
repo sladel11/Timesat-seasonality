@@ -3,10 +3,10 @@ import os
 from arcpy.sa import ExtractByMask, SetNull
 
 # Set the workspace and output folder
-folder1 = r"C:\Users\laszews\Documents\Thesis\SMAPintegrals\tif"  # Folder 1 path
-folder2 = r"C:\Users\laszews\Documents\Thesis\MIddleofSeason\EVITIF"  # Folder 2 path
+folder1 = r""  # Folder path SM
+folder2 = r""  # Folder path VG
 output_folder = r"C:\Users\laszews\Documents\Thesis\SMAPintegrals"  # Output folder
-output_subtracted_path = os.path.join(output_folder, "subtracted_raster1.tif")  # Path for the subtracted raster
+output_subtracted_path = os.path.join(output_folder, "subtracted_raster.tif")  # Path for the subtracted raster
 arcpy.env.overwriteOutput = True
 
 # Ensure output folder exists
@@ -15,7 +15,7 @@ if not os.path.exists(output_folder):
 
 # Function to calculate the mean raster for a given folder
 def calculate_mean_raster(input_folder, mask_raster, divide_by_start=1):
-    tif_files = [f for f in os.listdir(input_folder) if f.endswith('season1.tif') or f.endswith('season1.tiff')]
+    tif_files = [f for f in os.listdir(input_folder) if f.endswith('season1.tif') or f.endswith('season1.tiff')] 
     
     if not tif_files:
         print(f"No GeoTIFF files found in {input_folder}.")
@@ -54,14 +54,11 @@ def calculate_mean_raster(input_folder, mask_raster, divide_by_start=1):
     if input_folder == folder2:
         mean_raster_path = os.path.join(output_folder, f"mofs_processed_mean_EVI.tif")
         mean_raster.save(mean_raster_path)
-    else:
-        mean_raster_path = os.path.join(output_folder, f"LrgIntSM.tif")
-        mean_raster.save(mean_raster_path)
 
     return mean_raster
 
 # Define the mask raster (use the appropriate mask file for extraction)
-mask_raster = r"C:\Users\laszews\Documents\Thesis\us_eco_l3_state_boundaries\CaliforniaEcoRegion.shp"  # Adjust this to the path of your mask raster
+mask_raster = r""  # Adjust this to the path of your mask raster
 
 # Calculate mean rasters for both folders, using Extract by Mask
 mean_raster1 = calculate_mean_raster(folder1, mask_raster)  # Only divide for folder1
