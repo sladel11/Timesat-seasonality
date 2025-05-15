@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 
 # Load Raster Data
-with rasterio.open(r"C:\Users\laszews\Documents\Thesis\SMAPintegrals\SmIntSM.tif") as src2, \
-     rasterio.open(r'C:\Users\laszews\Documents\Thesis\MIddleofSeason\subtracted_raster.tif') as src1:
+with rasterio.open(r"") as src2, \
+     rasterio.open(r"") as src1:
     raster1 = src1.read(1)
     raster2 = src2.read(1)
     
