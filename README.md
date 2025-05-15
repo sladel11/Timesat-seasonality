@@ -75,7 +75,7 @@ An example of output image files for the length of the season will be given belo
 
 Use the TSF_fit2img to extract the length of season imagery for each season. The produced file is an ENVI headerless file that can only be read by TIMESAT.
 
-This [code](src-code/CreateHDR.py) produces a header file based on the parameters of the image so the ENVI file can be converted into a TIFF using this [script](src-code/envitotif.py) and read by another software
+This [code](src-code/CreateHDR.py) produces a [header file](images/EVImiddle1_season1.hdr) based on the parameters of the image so the ENVI file can be converted into a TIFF using this [script](src-code/envitotif.py) and read by another software
 
 
 
