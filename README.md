@@ -136,19 +136,39 @@ Lag = EVI_middle_of_season - SM_middle_of_season
 
 Bin pixels along the x-axis into groups of 300.
 Compute linear regressions between small int SM and lag of difference between VG-SM
-- 📜 [Linear regression scripting](src-code/.py)
+- 📜 [Linear regression scripting](src-code/DynSmallInt.py)
 
 Rgeression example: 
+![](images/dynsmallint.png)
+
+
+By dominant land covers
+- 📜 [linear regression land cover scripting](src-code/panelsmallint.py)
+
+Rgeression example:
+![](images/dynsmallintpanel.png)
+
 
 ### 4.1.2 quadratic regression
 
 Bin pixels along the x-axis into groups of 300.
 Compute guadratic regressions between large int SM and lag of difference between VG-SM
-- 📜 [quadratic regression scripting](src-code/.py)
+- 📜 [quadratic regression scripting](src-code/lrgintQuad.py)
 
-Rgeression example: 
+Rgeression example:
+![](images/dynlrgint.png)
+
+By dominant land covers
+- 📜 [quadratic regression land cover scripting](src-code/lrgintpanels.py)
+
+Rgeression example:
+![](images/dynlrgintpanel.png)
+
 
 ### 4.2 K-means clustering model
 
-- 📜 [Kmeans scripting](src-code/.py)
+- 📜 [Kmeans scripting](src-code/Kmeans.py)
+
+Kmeans example:
+![](images/mofseasonexample.png)
 
