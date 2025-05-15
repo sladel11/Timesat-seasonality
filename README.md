@@ -136,10 +136,10 @@ This section explores the relationship between soil moisture (SM) and the lag be
 
 ---
 
-#### 4.1.1 Linear Regression (Small Intensity SM)
+#### 4.1.1 Linear Regression (Small integer SM)
 
 - Group pixels into bins of 300 along the x-axis.
-- Perform linear regression between **small-intensity SM** and the **lag** (VG - SM middle of season).
+- Perform linear regression between **seasonal accumulation SM** and the **lag** (VG - SM middle of season).
 
 📜 Script: [DynSmallInt.py](src-code/DynSmallInt.py)
 
@@ -159,7 +159,7 @@ This section explores the relationship between soil moisture (SM) and the lag be
 #### 4.1.2 Quadratic Regression (Large Intensity SM)
 
 - Group pixels into bins of 300 along the x-axis.
-- Perform quadratic regression between **large-intensity SM** and the **lag** (VG - SM).
+- Perform quadratic regression between **total SM** and the **lag** (VG - SM).
 
 📜 Script: [lrgintQuad.py](src-code/lrgintQuad.py)
 
@@ -167,7 +167,7 @@ This section explores the relationship between soil moisture (SM) and the lag be
 ![](images/dynlrgint.png)
 
 **By Dominant Land Cover Types**  
-- Quadratic regressions within land cover types reveal how vegetation response varies with higher SM magnitudes.
+- Quadratic regressions within land cover types reveal how vegetation response varies with total SM.
 
 📜 Script: [lrgintpanels.py](src-code/lrgintpanels.py)
 
@@ -180,7 +180,7 @@ This section explores the relationship between soil moisture (SM) and the lag be
 
 Unsupervised clustering identifies spatial patterns in the lag between SM and VG.
 
-- Clustering is based on lag metrics, SM intensity, and land cover attributes.
+- Clustering is based on lag metrics, SM accummulation, and vegtation season length attributes.
 
 📜 Script: [Kmeans.py](src-code/Kmeans.py)
 
