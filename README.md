@@ -21,7 +21,7 @@ These bands will have to be separated during the BIL conversion.
 
 [More information on BIL files](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
 
-### Vegetation Health (EVI)
+### Vegetation Greenness (EVI)
 The image file for EVI is in an h5 or Hierarchical Data Format (HDF), which indicates that multidimensional data is stored in the layer. 
 This [page](https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viirs-surface-reflectance-data/) helped me work with the specific data I used.
 
@@ -69,13 +69,22 @@ Save this settings file to process all the images.
 
 Use TSF_process to run the seasonality model on all the pixels across however many years of data.
 
-### Post-Processing 
+### Create header file 
 
 An example of output image files for the length of the season will be given below, along with how to convert them so they can be analyzed in another software like QGIS or ArcGIS:
 
 Use the TSF_fit2img to extract the length of season imagery for each season. The produced file is an ENVI headerless file that can only be read by TIMESAT.
 
 This [code](src-code/CreateHDR.py) produces a [header file](images/EVImiddle1_season1.hdr) based on the parameters of the image so the ENVI file can be converted into a TIFF using this [script](src-code/envitotif.py) and read by another software
+
+![](images/mofseasonexample.png)
+
+### Average the seasons
+
+Since there are more than one season of data, average the amount of seasons to one image for an understanding of multi-year fluctuations
+This code will help average the lag between SM and Vegetation phenology by finding the difference between the middle of season metric (VG - SM)
+
+
 
 
 
