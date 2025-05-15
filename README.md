@@ -1,93 +1,140 @@
-# Timesat-seasonality
+# TIMESAT-Seasonality Analysis Workflow
 
-access to data used
-[SMAP SM](https://nsidc.org/data/nsidc-0779/versions/1)
+## 🔗 Data Sources
+- **SMAP Soil Moisture (SM)**: [NSIDC - NSIDC-0779](https://nsidc.org/data/nsidc-0779/versions/1)
+- **EVI (Enhanced Vegetation Index)**: [NASA VIIRS Data Guide](https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viirs-surface-reflectance-data/)
 
-## Part 1. Clipping and Conversions
-### SMAP Soil Moisture(SM)
-The image file contains data for the whole world, reducing the file size for analysis will be a more effective approach.
+---
 
-Original GeoTIFF file           |  Clipped GeoTIFF file
-:-------------------------:|:-------------------------:
-![](images/OriginalTIFSMAP.png)  |  ![](images/clippedtifCA.png)
+## 🧩 Part 1: Clipping and Conversion
 
-[Code for clipping to your extent](src-code/cliptif.py)
+### 1.1 SMAP Soil Moisture (SM)
 
-TIMESAT can only process specific file types, including BIL, not TIFF, so we will have to convert the images. 
-Also, there are two bands, one for the ascending path of the L band radiometer and one for the descending path.
-These bands will have to be separated during the BIL conversion. 
+**Original Data:**
+- Global `.tif` file with two bands: ascending and descending paths of the L-band radiometer.
 
-[Code for conversion to bil](src-code/TifToBILSMAP.py)
+**Steps:**
+1. **Clip the GeoTIFF to your study region**  
+   - 📜 [Clipping script](src-code/cliptif.py)
 
-[More information on BIL files](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
+   | Original | Clipped |
+   |----------|---------|
+   | ![](images/OriginalTIFSMAP.png) | ![](images/clippedtifCA.png) |
 
-### Vegetation Greenness (EVI)
-The image file for EVI is in an h5 or Hierarchical Data Format (HDF), which indicates that multidimensional data is stored in the layer. 
-This [page](https://lpdaac.usgs.gov/resources/e-learning/working-daily-nasa-viirs-surface-reflectance-data/) helped me work with the specific data I used.
+2. **Convert TIFF to BIL (Band Interleaved by Line)**  
+   - Separate the bands during conversion  
+   - 📜 [Conversion script](src-code/TifToBILSMAP.py)  
+   - ℹ️ [What is BIL?](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
 
-original HDF file           |  Mosaic GeoTIFF file (and clipped GeoTIFF)
-:-------------------------:|:-------------------------:
-Has multiple layers and will not be accessible for analysis|  Not available for depection due to projection but combines the multiple images of EVI to create a mosaic of data covering the entire state of California plus extra data, but clipping extent defined by an inputted shapefile will remove the extra info.
+---
 
-This [code](src-code/h5toMosaic.py) essentially takes the HDF files covering an area of interest (x amount of files determined by files with the same date in the image name) and creates a TIFF image of the files in the same frame. Then, the mosaic is clipped to a more defined extent. 
+### 1.2 Vegetation Greenness (EVI)
 
-The next step, similar to before, is to convert the TIFF to BIL using this [script](src-code/TIFtoBILEVI.py)
+**Original Data:**
+- HDF5 format with multiple bands.
 
+**Steps:**
+1. **Mosaic and clip HDFs to GeoTIFF**
+   - 📜 [Mosaicking and clipping script](src-code/h5toMosaic.py)
 
-### Confirm handling of files
-Confirm the conversion is successful by using [TIMESAT](https://web.nateko.lu.se/timesat/timesat.asp)
+2. **Convert TIFF to BIL**
+   - 📜 [Conversion script](src-code/TIFtoBILEVI.py)
 
- *TSM_Imageviewer* allows you to look at your image.
+---
 
+### ✅ Confirm BIL Output in TIMESAT
+
+- Use **TSM_Imageviewer** to inspect the `.bil` file.
+- Check the `.hdr` file for:
+  - `nrows`, `ncols`
+  - `nbits`
+
+📷 Example:
 ![](images/BILTSMimageViewSMAP.png)
 
-Determine the number of rows and columns by looking at the header file of the bil file.
-Then, for the image file type, look under n bits
+---
 
-## Part 2. Preprocessing in TSM_GUI
+## 🛠️ Part 2: TIMESAT Preprocessing in GUI
 
-### Create text file of bil paths 
+### 2.1 Prepare Input File List
 
-The image file paths need to be put into a text file in chronological order, which can be done using this [script](src-code/BILpaths.py) and an example of the text file below. (you will have to put number of file paths at the top yourself)
+Create a `.txt` file with `.bil` file paths in **chronological order**.
+
+- 📜 [File path script](src-code/BILpaths.py)
+- Add the total number of file paths as the first line manually.
+
+📷 Example:
 ![](images/filepaths.png)
 
-Open the TSM_GUI, set the number of years, and ensure the number of photos is shown. Also, fill in the other image information. 
-The inputs changed from the automatic settings include: 
-- Data range .00001 to 100000 (there are 0 values which are no data)
-- No. of envelope interactions increased to 2 (Soil moisture and vegetation health are derived using remote sensing indices which typically underrepresent the ground values)
-- Season starts at .3 of the amplitude to get a more significant portion of the season
-- Savitzky-Golsay averaging window increased to 10 to reduce noise
+---
 
-An example of a pixel time series produced from the GUI is below:
+### 2.2 Set TIMESAT Parameters
+
+Open **TSM_GUI** and set:
+
+- **Number of years** and **number of images**
+- **Data range**: `0.00001` to `100000`
+- **Envelope interactions**: `2`
+- **Season start**: `0.3` of amplitude
+- **Savitzky-Golay window**: `10`
+
+📷 Example:
 ![](images/TSMGUI.png)
 
-Save this settings file to process all the images. 
+➡️ Save the settings file for processing.
 
-## Part 3. Process Seasonality and Post-Processing
+---
 
-### TSF_process
+## ⚙️ Part 3: Seasonality Processing & Post-processing
 
-Use TSF_process to run the seasonality model on all the pixels across however many years of data.
+### 3.1 Run TIMESAT
 
-### Create header file 
+Use `TSF_process` to run the model over the image stack.
 
-An example of output image files for the length of the season will be given below, along with how to convert them so they can be analyzed in another software like QGIS or ArcGIS:
+---
 
-Use the TSF_fit2img to extract the length of season imagery for each season. The produced file is an ENVI headerless file that can only be read by TIMESAT.
+### 3.2 Extract Seasonality Metrics
 
-This [code](src-code/CreateHDR.py) produces a [header file](images/EVImiddle1_season1.hdr) based on the parameters of the image so the ENVI file can be converted into a TIFF using this [script](src-code/envitotif.py) and read by another software
+Use `TSF_fit2img` to extract metrics such as:
+- Length of season for VG
+- Middle of season for SM and VG
+- small integer for SM
+- large integer for SM
 
+Files are ENVI binary with **no header**.
+
+---
+
+### 3.3 Create Header Files
+
+- 📜 [Header creation script](src-code/CreateHDR.py)
+- 📄 Example: [EVImiddle1_season1.hdr](images/EVImiddle1_season1.hdr)
+
+Convert the binary to GeoTIFF:
+- 📜 [ENVI to TIFF conversion script](src-code/envitotif.py)
+
+📷 Output example:
 ![](images/mofseasonexample.png)
 
-### Average the seasons
+---
 
-Since there are more than one season of data, average the amount of seasons to one image for an understanding of multi-year fluctuations
-This [code](src-code/Averagetifsmiddle.py) will help average the lag between SM and Vegetation phenology by finding the difference between the middle of season metric (VG - SM)
+### 3.4 Average Multiple Seasons
 
+Calculate average seasonal metrics (e.g., average middle of season):
 
+- 📜 [Averaging script](src-code/Averagetifsmiddle.py)
 
+To compute **lag**:
+```python
+Lag = EVI_middle_of_season - SM_middle_of_season
 
+📊 ## Part 4: Regression and Clustering
 
+###4.1 Regression Analysis
 
+- Bin pixels along the x-axis into groups of 300.
+- Compute linear regressions between small int SM and lag of difference between VG-SM
+
+Visualization:
 
 
