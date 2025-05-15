@@ -124,17 +124,31 @@ Calculate average seasonal metrics (e.g., average middle of season):
 
 - 📜 [Averaging script](src-code/Averagetifsmiddle.py)
 
-To compute **lag**:
-```python
+compute **lag**:
+
 Lag = EVI_middle_of_season - SM_middle_of_season
 
 📊 ## Part 4: Regression and Clustering
 
-###4.1 Regression Analysis
+### 4.1 Regression Analysis
 
-- Bin pixels along the x-axis into groups of 300.
-- Compute linear regressions between small int SM and lag of difference between VG-SM
+### 4.1.1 linear regression
 
-Visualization:
+Bin pixels along the x-axis into groups of 300.
+Compute linear regressions between small int SM and lag of difference between VG-SM
+- 📜 [Linear regression scripting](src-code/.py)
 
+Rgeression example: 
+
+### 4.1.2 quadratic regression
+
+Bin pixels along the x-axis into groups of 300.
+Compute guadratic regressions between large int SM and lag of difference between VG-SM
+- 📜 [quadratic regression scripting](src-code/.py)
+
+Rgeression example: 
+
+### 4.2 K-means clustering model
+
+- 📜 [Kmeans scripting](src-code/.py)
 
