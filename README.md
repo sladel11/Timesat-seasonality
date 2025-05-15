@@ -128,47 +128,63 @@ compute **lag**:
 
 Lag = EVI_middle_of_season - SM_middle_of_season
 
-📊 ## Part 4: Regression and Clustering
+## 📊 Part 4: Regression and Clustering
 
 ### 4.1 Regression Analysis
 
-### 4.1.1 linear regression
+This section explores the relationship between soil moisture (SM) and the lag between vegetation (VG) and SM phenology using both linear and quadratic regression models. Pixels are grouped in bins (300 pixels per group) to reduce noise and better visualize trends.
 
-Bin pixels along the x-axis into groups of 300.
-Compute linear regressions between small int SM and lag of difference between VG-SM
-- 📜 [Linear regression scripting](src-code/DynSmallInt.py)
+---
 
-Rgeression example: 
+#### 4.1.1 Linear Regression (Small Intensity SM)
+
+- Group pixels into bins of 300 along the x-axis.
+- Perform linear regression between **small-intensity SM** and the **lag** (VG - SM middle of season).
+
+📜 Script: [DynSmallInt.py](src-code/DynSmallInt.py)
+
+📈 Example Output:  
 ![](images/dynsmallint.png)
 
+**By Dominant Land Cover Types**  
+- Linear regressions are also performed within dominant land cover classes.
 
-By dominant land covers
-- 📜 [linear regression land cover scripting](src-code/panelsmallint.py)
+📜 Script: [panelsmallint.py](src-code/panelsmallint.py)
 
-Rgeression example:
+📈 Example Output:  
 ![](images/dynsmallintpanel.png)
 
+---
 
-### 4.1.2 quadratic regression
+#### 4.1.2 Quadratic Regression (Large Intensity SM)
 
-Bin pixels along the x-axis into groups of 300.
-Compute guadratic regressions between large int SM and lag of difference between VG-SM
-- 📜 [quadratic regression scripting](src-code/lrgintQuad.py)
+- Group pixels into bins of 300 along the x-axis.
+- Perform quadratic regression between **large-intensity SM** and the **lag** (VG - SM).
 
-Rgeression example:
+📜 Script: [lrgintQuad.py](src-code/lrgintQuad.py)
+
+📈 Example Output:  
 ![](images/dynlrgint.png)
 
-By dominant land covers
-- 📜 [quadratic regression land cover scripting](src-code/lrgintpanels.py)
+**By Dominant Land Cover Types**  
+- Quadratic regressions within land cover types reveal how vegetation response varies with higher SM magnitudes.
 
-Rgeression example:
+📜 Script: [lrgintpanels.py](src-code/lrgintpanels.py)
+
+📈 Example Output:  
 ![](images/dynlrgintpanel.png)
 
+---
 
-### 4.2 K-means clustering model
+### 4.2 K-Means Clustering
 
-- 📜 [Kmeans scripting](src-code/Kmeans.py)
+Unsupervised clustering identifies spatial patterns in the lag between SM and VG.
 
-Kmeans example:
-![](images/mofseasonexample.png)
+- Clustering is based on lag metrics, SM intensity, and land cover attributes.
 
+📜 Script: [Kmeans.py](src-code/Kmeans.py)
+
+📈 Cluster Map Output:  
+![](images/FigureClustersMap.png)
+
+---
