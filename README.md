@@ -82,7 +82,7 @@ This [code](src-code/CreateHDR.py) produces a [header file](images/EVImiddle1_se
 ### Average the seasons
 
 Since there are more than one season of data, average the amount of seasons to one image for an understanding of multi-year fluctuations
-This code will help average the lag between SM and Vegetation phenology by finding the difference between the middle of season metric (VG - SM)
+This [code](src-code/Averagetifsmiddle.py) will help average the lag between SM and Vegetation phenology by finding the difference between the middle of season metric (VG - SM)
 
 
 
