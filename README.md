@@ -15,7 +15,7 @@
 
 **Steps:**
 1. **Clip the GeoTIFF to your study region**  
-   - 📜 [Clipping script](src-code/cliptif.py)
+   - [Clipping script](src-code/cliptif.py)
 
    | Original | Clipped |
    |----------|---------|
@@ -23,8 +23,8 @@
 
 2. **Convert TIFF to BIL (Band Interleaved by Line)**  
    - Separate the bands during conversion  
-   - 📜 [Conversion script](src-code/TifToBILSMAP.py)  
-   - ℹ️ [What is BIL?](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
+   - [Conversion script](src-code/TifToBILSMAP.py)  
+   - [What is BIL?](https://desktop.arcgis.com/en/arcmap/latest/manage-data/raster-and-images/bil-bip-and-bsq-raster-files.htm)
 
 ---
 
@@ -35,14 +35,14 @@
 
 **Steps:**
 1. **Mosaic and clip HDFs to GeoTIFF**
-   - 📜 [Mosaicking and clipping script](src-code/h5toMosaic.py)
+   - [Mosaicking and clipping script](src-code/h5toMosaic.py)
 
 2. **Convert TIFF to BIL**
-   - 📜 [Conversion script](src-code/TIFtoBILEVI.py)
+   - [Conversion script](src-code/TIFtoBILEVI.py)
 
 ---
 
-### ✅ Confirm BIL Output in TIMESAT
+### Confirm BIL Output in TIMESAT
 
 - Use **TSM_Imageviewer** to inspect the `.bil` file.
 - Check the `.hdr` file for:
@@ -60,10 +60,10 @@
 
 Create a `.txt` file with `.bil` file paths in **chronological order**.
 
-- 📜 [File path script](src-code/BILpaths.py)
+- [File path script](src-code/BILpaths.py)
 - Add the total number of file paths as the first line manually.
 
-📷 Example:
+Example:
 ![](images/filepaths.png)
 
 ---
@@ -78,10 +78,10 @@ Open **TSM_GUI** and set:
 - **Season start**: `0.3` of amplitude
 - **Savitzky-Golay window**: `10`
 
-📷 Example:
+Example:
 ![](images/TSMGUI.png)
 
-➡️ Save the settings file for processing.
+Save the settings file for processing.
 
 ---
 
@@ -107,13 +107,13 @@ Files are ENVI binary with **no header**.
 
 ### 3.3 Create Header Files
 
-- 📜 [Header creation script](src-code/CreateHDR.py)
-- 📄 Example: [EVImiddle1_season1.hdr](images/EVImiddle1_season1.hdr)
+- [Header creation script](src-code/CreateHDR.py)
+- Example: [EVImiddle1_season1.hdr](images/EVImiddle1_season1.hdr)
 
 Convert the binary to GeoTIFF:
-- 📜 [ENVI to TIFF conversion script](src-code/envitotif.py)
+- [ENVI to TIFF conversion script](src-code/envitotif.py)
 
-📷 Output example:
+Output example:
 ![](images/mofseasonexample.png)
 
 ---
@@ -122,13 +122,13 @@ Convert the binary to GeoTIFF:
 
 Calculate average seasonal metrics (e.g., average middle of season):
 
-- 📜 [Averaging script](src-code/Averagetifsmiddle.py)
+- [Averaging script](src-code/Averagetifsmiddle.py)
 
 compute **lag**:
 
 Lag = EVI_middle_of_season - SM_middle_of_season
 
-## 📊 Part 4: Regression and Clustering
+## Part 4: Regression and Clustering
 
 ### 4.1 Regression Analysis
 
@@ -141,17 +141,17 @@ This section explores the relationship between soil moisture (SM) and the lag be
 - Group pixels into bins of 300 along the x-axis.
 - Perform linear regression between **seasonal accumulation SM** and the **lag** (VG - SM middle of season).
 
-📜 Script: [DynSmallInt.py](src-code/DynSmallInt.py)
+Script: [DynSmallInt.py](src-code/DynSmallInt.py)
 
-📈 Example Output:  
+ Example Output:  
 ![](images/dynsmallint.png)
 
 **By Dominant Land Cover Types**  
 - Linear regressions are also performed within dominant land cover classes.
 
-📜 Script: [panelsmallint.py](src-code/panelsmallint.py)
+Script: [panelsmallint.py](src-code/panelsmallint.py)
 
-📈 Example Output:  
+Example Output:  
 ![](images/dynsmallintpanel.png)
 
 ---
@@ -161,17 +161,17 @@ This section explores the relationship between soil moisture (SM) and the lag be
 - Group pixels into bins of 300 along the x-axis.
 - Perform quadratic regression between **total SM** and the **lag** (VG - SM).
 
-📜 Script: [lrgintQuad.py](src-code/lrgintQuad.py)
+Script: [lrgintQuad.py](src-code/lrgintQuad.py)
 
-📈 Example Output:  
+Example Output:  
 ![](images/dynlrgint.png)
 
 **By Dominant Land Cover Types**  
 - Quadratic regressions within land cover types reveal how vegetation response varies with total SM.
 
-📜 Script: [lrgintpanels.py](src-code/lrgintpanels.py)
+Script: [lrgintpanels.py](src-code/lrgintpanels.py)
 
-📈 Example Output:  
+Example Output:  
 ![](images/dynlrgintpanel.png)
 
 ---
@@ -182,9 +182,9 @@ Unsupervised clustering identifies spatial patterns in the lag between SM and VG
 
 - Clustering is based on lag metrics, SM accummulation, and vegtation season length attributes.
 
-📜 Script: [Kmeans.py](src-code/Kmeans.py)
+Script: [Kmeans.py](src-code/Kmeans.py)
 
-📈 Cluster Map Output:  
+Cluster Map Output:  
 ![](images/FigureClustersMap.png)
 
 ---
